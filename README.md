@@ -1,3 +1,14 @@
+## Setup
+
+Install Hasura CLI and Yarn:
+
+```
+# Install Yarn
+brew install yarn
+# Install Hasura
+curl -L https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | bash
+```
+
 ### Installation
 
 To install the required dependencies for the SyncNode, run:
@@ -27,6 +38,13 @@ docker-compose up hasura -d
 ```
 
 Hasura is now running and available at [http://localhost:8080](http://localhost:8080)
+
+Then apply Hasura metadata
+
+```
+cd hasura-reservoir
+hasura metadata apply
+```
 
 ### Configuration - ENV
 
