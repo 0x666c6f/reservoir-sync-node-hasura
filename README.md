@@ -1,10 +1,3 @@
-<h3 align="center">Reservoir Sync Node</h3>
-  <p align="center">
-    Reservoir Sync Node is a customizable lightweight indexer based on the Reservoir indexer. It's easy to set up, customizable, and fast. Sync sales and asks continuously into your infrastructure.
-  </p>
-
-![SyncNode Logo Placeholder](https://dashboard.reservoir.tools/reservoir.svg)
-
 ### Installation
 
 To install the required dependencies for the SyncNode, run:
@@ -15,12 +8,26 @@ yarn install
 
 ### Usage
 
-To launch the SyncNode, run the command below:
+First you need to launch the required services:
+
+```
+docker-compose up postgres redis -d
+```
+
+then launch the SyncNode with the below:
 
 ```
 yarn start
 ```
 
+finally once it is fully started, run hasura:
+
+```
+docker-compose up hasura -d
+```
+
+Hasura is now running and available at [http://localhost:8080](http://localhost:8080)
+
 ### Configuration - ENV
 
-Learn more about configuration from our [docs](https://docs.reservoir.tools/reference/reservoir-sync-node).
+Learn more about configuration for the Reservoir node: [docs](https://docs.reservoir.tools/reference/reservoir-sync-node).
