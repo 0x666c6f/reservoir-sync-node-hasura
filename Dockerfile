@@ -16,10 +16,9 @@ COPY . .
 RUN yarn build
 
 # Stage 2: Production environment
-FROM node:18-alpine AS production
+FROM node:18 AS production
 
 WORKDIR /app
-
 # Copy package.json and yarn.lock from the build stage
 COPY --from=build /app/package.json /app/yarn.lock ./
 COPY --from=build /app/prisma ./prisma
