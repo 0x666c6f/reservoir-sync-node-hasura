@@ -16,7 +16,9 @@ COPY . .
 RUN yarn build
 
 # Stage 2: Production environment
-FROM node:18 AS production
+FROM node:18-slim AS production
+
+RUN apt update -y && apt install -y openssl
 
 WORKDIR /app
 # Copy package.json and yarn.lock from the build stage
